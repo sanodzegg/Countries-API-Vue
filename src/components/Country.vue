@@ -3,7 +3,7 @@
         props : {
             flag: String,
             name: String,
-            population: Number,
+            population: String,
             region: String,
             capital: String
         }

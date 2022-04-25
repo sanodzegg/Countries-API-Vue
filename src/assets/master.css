@@ -19,8 +19,10 @@
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/nunitosans/v11/pe03MImSLYBIv1o4X1M8cc8aBf5q.ttf) format('truetype');
 }
-body {
+* {
   font-family: 'Nunito Sans', sans-serif;
+}
+body {
   background-color: #202c37;
   margin: 0;
   padding: 0;
@@ -55,6 +57,7 @@ nav {
 nav .switch {
   padding: 20px 0;
   display: flex;
+  cursor: pointer;
 }
 nav .switch svg {
   aspect-ratio: 1/1;
@@ -146,4 +149,74 @@ main .country__wrapper:hover {
 main .country__wrapper:hover .country__info-wrapper {
   background-color: #3a4752;
   transition: background-color 0.05s ease-in-out;
+}
+.country__details-section {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 110px;
+}
+.country__details-section .back__button {
+  padding: 8px 25px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #00000033;
+  border: none;
+  outline: none;
+  background-color: #2b3945;
+  color: #ffffff;
+  font-size: 15px;
+  margin: 70px 0;
+  cursor: pointer;
+}
+.country__details-section .country__details-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff;
+}
+.country__details-section .country__details-wrapper .coutry__details {
+  width: 50%;
+}
+.country__details-section .country__details-wrapper img {
+  aspect-ratio: 2 / 1.5;
+  min-width: 500px;
+  box-shadow: 0 0 10px #00000033;
+}
+.country__details-section .country__details-wrapper .country__name {
+  margin-bottom: 30px;
+}
+.country__details-section .country__details-wrapper .details__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.country__details-section .country__details-wrapper .details__wrapper h2 {
+  font-size: 15px !important;
+  margin: 10px 0;
+  font-size: 14px;
+  font-weight: 300;
+}
+.country__details-section .country__details-wrapper .details__wrapper h2 span {
+  font-weight: 600;
+}
+.country__details-section .country__details-wrapper .details__wrapper .details__r {
+  margin-right: 80px;
+}
+.country__details-section .country__details-wrapper .details__b {
+  margin-top: 50px;
+}
+.country__details-section .country__details-wrapper .details__b span {
+  margin-right: 15px;
+}
+.country__details-section .country__details-wrapper .details__b .borders__wrapper {
+  display: flex;
+}
+.country__details-section .country__details-wrapper .details__b .borders__wrapper button {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #2b3945;
+  color: #ffffff;
+  padding: 5px 15px;
+  margin-left: 15px;
 }
