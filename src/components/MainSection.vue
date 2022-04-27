@@ -11,7 +11,7 @@
                 countriesToDisplay: [],
                 countryInfoDisplay: [],
                 searchTerm: "",
-                filter: "",
+                countryFilter: "",
             }
         },
         mounted:function() {
@@ -92,7 +92,7 @@
 <template>
     <div class="filter__section">
         <input type="text" placeholder="Search for a country..." v-model="searchTerm" v-on:keyup="searchCountry">
-        <select name="regionFilter" id="regionFilter" v-on:change="getCountries(filter)" v-model="filter">
+        <select name="regionFilter" id="regionFilter" v-on:change="getCountries(countryFilter)" v-model="countryFilter">
             <option disabled value="">Filter by Region</option>
             <option value="africa">Africa</option>
             <option value="america">America</option>
