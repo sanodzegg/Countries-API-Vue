@@ -1,3 +1,14 @@
+.dark-theme {
+  background-color: #202c37;
+  color: #ffffff;
+  fill: #ffffff;
+}
+.dark-theme nav,
+.dark-theme input,
+.dark-theme select,
+.dark-theme .country__wrapper {
+  background-color: #2b3945;
+}
 @font-face {
   font-family: 'Nunito Sans';
   font-style: normal;
@@ -44,6 +55,42 @@ body a {
   text-decoration: none;
   color: unset;
 }
+.dark {
+  background-color: #202c37;
+  color: #ffffff;
+  fill: #ffffff;
+}
+.dark nav,
+.dark input,
+.dark select,
+.dark .country__wrapper {
+  background-color: #2b3945;
+}
+.light {
+  background-color: #fafafa;
+  color: #111517;
+  fill: #111517;
+}
+.light #app svg {
+  fill: #111517;
+}
+.light #app nav,
+.light #app input,
+.light #app select,
+.light #app .country__wrapper,
+.light #app button {
+  background-color: #ffffff;
+  color: #111517;
+}
+.light #app ::placeholder {
+  color: #111517;
+}
+.light #app main .country__wrapper:hover .country__info-wrapper {
+  background-color: unset;
+}
+.light #app .country__details-section .coutry__details {
+  color: #111517;
+}
 nav {
   background-color: #2b3945;
   font-size: 14px;
@@ -53,6 +100,11 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+@media screen and (max-width: 768px) {
+  nav {
+    padding: 0 5px;
+  }
 }
 nav .switch {
   padding: 20px 0;
@@ -69,6 +121,7 @@ nav .switch button {
   outline: none;
   background-color: transparent;
   color: #ffffff;
+  cursor: pointer;
 }
 .filter__section {
   width: 100%;
@@ -78,6 +131,18 @@ nav .switch button {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+@media screen and (max-width: 768px) {
+  .filter__section {
+    flex-direction: column;
+    row-gap: 25px;
+  }
+}
+@media screen and (max-width: 575px) {
+  .filter__section {
+    padding: 0 80px;
+    width: unset;
+  }
 }
 .filter__section input {
   border: none;
@@ -112,6 +177,12 @@ main {
   margin: 0 auto;
   display: grid;
   grid-template-columns: auto auto auto auto;
+}
+@media screen and (max-width: 1465px) {
+  main {
+    grid-template-columns: repeat(auto-fill, 340px);
+    justify-content: center;
+  }
 }
 main .country__wrapper {
   background-color: #2b3945;
@@ -155,6 +226,16 @@ main .country__wrapper:hover .country__info-wrapper {
   margin: 0 auto;
   padding: 0 110px;
 }
+@media screen and (max-width: 1240px) {
+  .country__details-section {
+    padding: 0 8.871vw;
+  }
+}
+@media screen and (max-width: 535px) {
+  .country__details-section {
+    padding: 0 10px;
+  }
+}
 .country__details-section .back__button {
   padding: 8px 25px;
   border-radius: 5px;
@@ -173,6 +254,18 @@ main .country__wrapper:hover .country__info-wrapper {
   align-items: center;
   color: #ffffff;
 }
+@media screen and (max-width: 1240px) {
+  .country__details-section .country__details-wrapper {
+    flex-direction: column;
+    row-gap: 20px;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 535px) {
+  .country__details-section .country__details-wrapper {
+    text-align: center;
+  }
+}
 .country__details-section .country__details-wrapper .coutry__details {
   width: 50%;
 }
@@ -181,6 +274,12 @@ main .country__wrapper:hover .country__info-wrapper {
   min-width: 500px;
   box-shadow: 0 0 10px #00000033;
 }
+@media screen and (max-width: 535px) {
+  .country__details-section .country__details-wrapper img {
+    min-width: unset;
+    width: 100%;
+  }
+}
 .country__details-section .country__details-wrapper .country__name {
   margin-bottom: 30px;
 }
@@ -188,6 +287,17 @@ main .country__wrapper:hover .country__info-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+@media screen and (max-width: 1240px) {
+  .country__details-section .country__details-wrapper .details__wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 535px) {
+  .country__details-section .country__details-wrapper .details__wrapper {
+    text-align: center;
+  }
 }
 .country__details-section .country__details-wrapper .details__wrapper h2 {
   font-size: 15px !important;
@@ -200,6 +310,18 @@ main .country__wrapper:hover .country__info-wrapper {
 }
 .country__details-section .country__details-wrapper .details__wrapper .details__r {
   margin-right: 80px;
+  width: auto;
+}
+@media screen and (max-width: 1240px) {
+  .country__details-section .country__details-wrapper .details__wrapper .details__r {
+    margin: 0;
+  }
+}
+@media screen and (max-width: 535px) {
+  .country__details-section .country__details-wrapper .details__wrapper .details__r {
+    margin: 0;
+    text-align: center;
+  }
 }
 .country__details-section .country__details-wrapper .details__b {
   margin-top: 50px;
@@ -209,6 +331,12 @@ main .country__wrapper:hover .country__info-wrapper {
 }
 .country__details-section .country__details-wrapper .details__b .borders__wrapper {
   display: flex;
+  align-items: center;
+}
+@media screen and (max-width: 1240px) {
+  .country__details-section .country__details-wrapper .details__b .borders__wrapper {
+    justify-content: center;
+  }
 }
 .country__details-section .country__details-wrapper .details__b .borders__wrapper button {
   border: none;
@@ -219,4 +347,19 @@ main .country__wrapper:hover .country__info-wrapper {
   color: #ffffff;
   padding: 5px 15px;
   margin-left: 15px;
+}
+@media screen and (max-width: 860px) {
+  .country__details-section .country__details-wrapper .details__b .borders__wrapper {
+    flex-direction: column;
+    row-gap: 10px;
+    align-items: center;
+  }
+  .country__details-section .country__details-wrapper .details__b .borders__wrapper span {
+    text-align: center;
+    margin: 0;
+  }
+  .country__details-section .country__details-wrapper .details__b .borders__wrapper button {
+    margin-left: 0;
+    max-width: 70px;
+  }
 }

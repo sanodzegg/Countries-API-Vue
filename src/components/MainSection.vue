@@ -11,12 +11,15 @@
                 countriesToDisplay: [],
                 countryInfoDisplay: [],
                 searchTerm: "",
-                filter: ""
+                filter: "",
             }
         },
         mounted:function() {
             this.getCountries();
             display.countryDetails = false;
+
+            this.getTheme();
+            delete this.getTheme();
         },
         methods: {
             getCountries(filter) {
@@ -71,7 +74,17 @@
                         this.displayCountry('search', null, this.searchTerm);
                     });
                 }
-            }
+            },
+            getTheme() {
+                let theme = localStorage.getItem("user-theme");
+                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    localStorage.setItem("user-theme", "dark");
+                    document.body.className = theme;
+                } else {
+                    localStorage.setItem("user-theme", "white");
+                    document.body.className = theme;
+                }
+            },
         }
     }
 </script>
