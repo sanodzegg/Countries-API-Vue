@@ -180,7 +180,7 @@ main {
 }
 @media screen and (max-width: 1465px) {
   main {
-    grid-template-columns: repeat(auto-fill, 340px);
+    grid-template-columns: repeat(auto-fill, 360px);
     justify-content: center;
   }
 }
@@ -282,6 +282,7 @@ main .country__wrapper:hover .country__info-wrapper {
 }
 .country__details-section .country__details-wrapper .country__name {
   margin-bottom: 30px;
+  text-transform: capitalize;
 }
 .country__details-section .country__details-wrapper .details__wrapper {
   display: flex;
