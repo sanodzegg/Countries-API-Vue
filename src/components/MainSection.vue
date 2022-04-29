@@ -11,7 +11,9 @@
                 countriesToDisplay: [],
                 countryInfoDisplay: [],
                 searchTerm: "",
-                countryFilter: "",
+
+                startpoint: 12,
+                endpoint: 11,
             }
         },
         mounted:function() {
@@ -22,9 +24,9 @@
             delete this.getTheme();
         },
         methods: {
-            getCountries(filter) {
-                if(filter) {
-                    this.countriesFetch(`https://restcountries.com/v3.1/region/${filter}`);
+            getCountries(event) {
+                if(event) {
+                    this.countriesFetch(`https://restcountries.com/v3.1/region/${event.target.value}`);
                 } else {
                     this.countriesFetch(`https://restcountries.com/v3.1/all`);
                 }
@@ -33,16 +35,32 @@
                 fetch(url).then(res => res.json())
                 .then(data => {
                     data.forEach((e, i) => {
-                        if(i < 12) {
+                        if(i <= this.endpoint) {
                             e.population = e.population.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
                             this.countriesToDisplay.splice(i, i+1, e);
                         }
+                        this.getNextCountries(data);
                     });
                 });
             },
+            getNextCountries(data) {
+                window.onscroll = () => {
+                    let bottomOfWindow = document.documentElement.scrollTop + window.innerHeight === document.documentElement.offsetHeight;
+                    if (bottomOfWindow) {
+                        this.endpoint += 12;
+                        for(let i = this.startpoint; i < data.length; i++) {
+                            if(i < this.endpoint && data[i].capital != undefined) {
+                                data[i].population = data[i].population.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
+                                this.countriesToDisplay.push(data[i]);
+                            }
+                        }
+                        this.startpoint += 12;
+                    }
+                };
+            },
             displayCountry(type, event, name) {
                 if(type == 'click') {
-                    name = event.path[2].children[1].children[0].innerText;
+                    name = event.composedPath()[2].children[1].firstChild.innerText;
                 } else {
                     name = name;
                 }
@@ -91,9 +109,9 @@
 
 <template>
     <div class="filter__section">
-        <input type="text" placeholder="Search for a country..." v-model="searchTerm" v-on:keyup="searchCountry">
-        <select name="regionFilter" id="regionFilter" v-on:change="getCountries(countryFilter)" v-model="countryFilter">
-            <option disabled value="">Filter by Region</option>
+        <input type="text" placeholder="Search for a country..." v-bind:value="searchTerm" v-on:input="searchTerm = $event.target.value" v-on:keyup="searchCountry">
+        <select name="regionFilter" id="regionFilter" v-on:change="getCountries($event)">
+            <option disabled selected value="">Filter by Region</option>
             <option value="africa">Africa</option>
             <option value="america">America</option>
             <option value="asia">Asia</option>
